@@ -7,7 +7,12 @@ class TestArtist < MiniTest::Test
 
 
   def setup
+    @artist = Artist.new( 'name' => 'Metallica' )
 
+  end
+
+  def test_name
+    assert_equal("Metallica", @artist.name)
   end
 
 
