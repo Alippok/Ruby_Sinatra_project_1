@@ -42,8 +42,16 @@ class Stock
     sql = "SELECT * FROM stocks WHERE album_id=#{album_id};"
     return Stock.map_item( SqlRunner.execute(sql) )
   end
-  
 
+  #Would i want to be able to search my stock by artist? I.E Have you got anything in by 
+  #Metallica?
+
+  def self.find_artist(artist_id)
+  sql = "SELECT * FROM stocks INNER JOIN albums ON album_id = albums.id INNER JOIN artists ON artist_id = artists.id WHERE artists.id = #{artist_id}"
+  return Stock.map_items( SqlRunner.execute(sql) )
+  end
+  
+  
   def self.map_items(object)
     return object.map{|stock_item| Stock.new(stock_item)}
   end
