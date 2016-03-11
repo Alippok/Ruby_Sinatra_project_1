@@ -15,6 +15,9 @@ class TestAlbum < MiniTest::Test
     assert_equal('Kill Em All', @album1.title)
   end
 
+  def test_artist_id
+    assert_equal(1, @album1.artist_id)
+  end
 
 
 
