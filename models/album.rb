@@ -39,19 +39,30 @@ class Album
     return Album.map_items(albums)
   end
 
+
   def self.find(id)
     sql = "SELECT * FROM albums WHERE id =#{id}"
     album = SqlRunner.execute(sql)
     return Album.map_item(album)
   end
+
+
+  def self.artist(artist_id)
+    sql = "SELECT * FROM albums WHERE artist_id=#{artist_id}"
+    return Album.map_items( SqlRunner.execute(sql) )
+  end
+
+
   def self.map_items(object)
     return object.map{|album| Album.new(album)}  
   end
+
 
   def self.map_item(object)
     album = Album.map_items(object)
     return album.first
   end
+
 
   def self.delete_all
     sql = "DELETE FROM albums"

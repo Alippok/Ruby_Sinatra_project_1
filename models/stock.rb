@@ -37,6 +37,13 @@ class Stock
     return Stock.map_item( SqlRunner.execute(sql) )
   end
 
+
+  def self.find_album(album_id)
+    sql = "SELECT * FROM stocks WHERE album_id=#{album_id};"
+    return Stock.map_item( SqlRunner.execute(sql) )
+  end
+  
+
   def self.map_items(object)
     return object.map{|stock_item| Stock.new(stock_item)}
   end
