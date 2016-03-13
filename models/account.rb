@@ -6,7 +6,9 @@ class Account
     @balance = balance
   end
 
-  
+  def add(amount)
+     return @balance += amount
+  end
 
 
 

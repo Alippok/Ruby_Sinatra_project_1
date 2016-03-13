@@ -13,7 +13,9 @@ class TestAccount < MiniTest::Test
     assert_equal(500, @account.balance)
   end
 
-
+  def test_add_to_balance
+    assert_equal(523, @account.add(23))
+  end
 
 
 
