@@ -1,6 +1,6 @@
 require ('pg')
 
-class SqlRunnner
+class SqlRunner
   @@db_credentials = { dbname: 'music_store', host: 'localhost'}
 
   def self.execute(sql)
