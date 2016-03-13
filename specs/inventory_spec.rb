@@ -28,6 +28,9 @@ class TestInventory < MiniTest::Test
 
 
     @stock1 = Stock.new( 'album_id'=> @album1.id, 'quantity'=> 0 )
+    @stock2 = Stock.new( 'album_id'=> @album2.id, 'quantity'=> 4 )
+    @stock3 = Stock.new( 'album_id'=> @album3.id, 'quantity'=> 2 )
+    @stock4 = Stock.new( 'album_id'=> @album5.id, 'quantity'=> 5 )
     
 
     @stocks = [ @stock1, @stock2, @stock3, @stock4 ]
@@ -53,8 +56,18 @@ class TestInventory < MiniTest::Test
     assert_equal(500, @inventory.account_balance)
   end
 
+  def test_all_stocks
+    expectation = {'Stock 1' => [1,0] , 
+    'Stock 2' => [2,4] ,
+    'Stock 3' => [3,2] ,
+    'Stock 4' => [5,5] }
+        
+    assert_equal(expectation, @inventory.stocks)
+  end
 
-
+  def test_find_specific_stock_info_given_an_album_id
+    assert_equal(@stock1, @inventory.stock_search(1))
+  end
 
 
 

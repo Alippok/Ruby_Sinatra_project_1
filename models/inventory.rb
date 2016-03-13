@@ -20,6 +20,36 @@ class Inventory
     return @account.balance
   end
 
+  def stocks
+    stock_hash = {}
+    index = 1
+    @stocks.each do |stock|
+      stock_hash["Stock #{index}"] = [stock.album_id, stock.quantity]
+      index +=1
+    end
+    return stock_hash
+  end
+
+  def stock_search(id)
+    @stocks.each do |stock|
+      if stock.album_id == id
+        return stock
+      end
+    end
+  end
+
+
+    # @stocks.each do |stock|
+      
+    #   if stock.album_id == id
+    #     return stock
+    #   else 
+    #     return "No stock with that id"
+    #   end
+    
+    # end
+
+
 
   # def album_info(id)
   #   @albums.each do |album|
