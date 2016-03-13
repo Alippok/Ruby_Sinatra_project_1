@@ -17,6 +17,9 @@ class TestAccount < MiniTest::Test
     assert_equal(523, @account.add(23))
   end
 
+  def test_subtract_from_balance
+    assert_equal(430, @account.take(70))
+  end
 
 
 end

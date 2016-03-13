@@ -10,6 +10,10 @@ class Account
      return @balance += amount
   end
 
+  def take(amount) 
+    return @balance -= amount
+  end
+
 
 
 
