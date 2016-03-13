@@ -68,7 +68,10 @@ class TestInventory < MiniTest::Test
   def test_find_specific_stock_info_given_an_album_id
     assert_equal(@stock1, @inventory.stock_search(1))
   end
-
+  
+  def test_find_stock_album_info
+    assert_equal(@album5, @inventory.stock_info(5))
+  end
 
 
 end
