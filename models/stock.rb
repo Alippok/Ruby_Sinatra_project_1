@@ -22,8 +22,14 @@ class Stock
     SqlRunner.execute(sql)
     return Stock.new(Stock.last_entry)    
   end
-
-
+  
+  def update()
+    sql = "UPDATE stocks set
+    album_id = #{@album_id}, 
+    quantity = #{@quantity} where id = #{@id}"
+    SqlRunner.execute(sql)
+  end
+  
   def self.last_entry
     sql = "SELECT * FROM stocks ORDER BY id DESC limit 1"
     SqlRunner.execute(sql).first
@@ -53,6 +59,7 @@ class Stock
   return Stock.map_items( SqlRunner.execute(sql) )
   end
   
+
 
   
   def self.map_items(object)
