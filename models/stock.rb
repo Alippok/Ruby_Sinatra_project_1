@@ -10,6 +10,8 @@ class Stock
     @quantity = nil || params['quantity']
   end
 
+  def stock_info()
+
   def self.create(params)
     sql = "INSERT INTO stocks
     (album_id,
@@ -51,6 +53,7 @@ class Stock
   return Stock.map_items( SqlRunner.execute(sql) )
   end
   
+
   
   def self.map_items(object)
     return object.map{|stock_item| Stock.new(stock_item)}
