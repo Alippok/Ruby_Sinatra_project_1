@@ -85,7 +85,8 @@ class Inventory
   end
 
   def updated_quantity(album_id, quantity)
-    return updated_quantity = stock_quantity(album_id) + quantity
+      return updated_quantity = stock_quantity(album_id) + quantity
+    
   end
 
   def full_stock_search(album_id)
@@ -101,6 +102,19 @@ class Inventory
         'buy_price' => album.buy_price,
         'current_quantity' => stock_item.quantity
       }
+    end
+  end
+
+  def buy_stock(album_id, quantity)
+    info = full_stock_search(album_id)
+    if info.class == String
+      return info
+    else
+      new_quantity = updated_quantity(album_id, quantity) 
+
+      buy_transaction(info['buy_price'], quantity)
+      
+      return new_stock = {'album_id' => album_id, 'quantity' => new_quantity}
     end
   end
 

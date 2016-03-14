@@ -111,4 +111,22 @@ class TestInventory < MiniTest::Test
     assert_equal(expectation, result)
   end
 
+  def test_return_updated_stock_item
+    result = @inventory.buy_stock(5, 7)
+    expectation = {'album_id'=> @album5.id, 'quantity'=> 12}
+    assert_equal(expectation, result)
+  end
+
+  def test_above_method_works_with_different_album
+    result = @inventory.buy_stock(3, 3)
+    expectation = {'album_id'=> @album3.id, 'quantity'=> 5}
+    assert_equal(expectation, result)
+  end
+
+  def test_returns_correct_error_message_if_album_not_in_stock
+    result = @inventory.buy_stock(4, 3)
+    expectation = "Album not stocked"
+    assert_equal(expectation, result)
+  end
+
 end
