@@ -52,19 +52,25 @@ class Inventory
         end
       end
     end
-    return "No album with that id"
+    return "No album with that id stocked"
   end#Because of the above method return the whole array of stock items if it doesnt find
   #one matching the id, this affects the search in this method.NEED TO SOLVE!
   #Also, the above does not include the QUANTITY! Will need pick anc choose what to display 
   #to the user in the VIEWS. FIXED
 
-  # def album_info(id)
-  #   @albums.each do |album|
-  #     if album.id == id
-  #       return [album.title]      
-  #     end
-  #   end
-  # end
+  def artist_info(id)
+    album = stock_info(id)
+    if album.class == String
+      return "This artist is not stocked"
+    else
+      @artists.each do |artist|
+        if artist.id == album.artist_id
+          return artist
+        end
+      end
+    end
+    return "No artist with that id stocked"
+  end
 
 
 

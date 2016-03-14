@@ -73,5 +73,13 @@ class TestInventory < MiniTest::Test
     assert_equal(@album5, @inventory.stock_info(5))
   end
 
+  def test_find_artist_for_stocked_album
+    expectation = @artist1
+    
+    result = @inventory.artist_info(2)
+    assert_equal(expectation, result)
+  end
+
+
 
 end
