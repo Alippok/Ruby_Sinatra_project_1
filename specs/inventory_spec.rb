@@ -80,6 +80,10 @@ class TestInventory < MiniTest::Test
     assert_equal(expectation, result)
   end
 
+  def test_multiply_buy_price_by_a_given_quantity
+    result = @inventory.total_buy_price(@album4.buy_price, 5)
+    assert_equal(15, result )
+  end
 
 
 end

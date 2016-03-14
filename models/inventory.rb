@@ -72,6 +72,9 @@ class Inventory
     return "No artist with that id stocked"
   end
 
+  def total_buy_price(album_buy_price, quantity)
+    return album_buy_price * quantity
+  end
 
 
 end
