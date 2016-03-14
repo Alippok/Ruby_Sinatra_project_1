@@ -3,6 +3,12 @@
 <% @artists.each do |artist| %>
 
   <h3>Name: <%= artist.name %></h3>
+  
+  <a href="/artists/<%= artist.id %>/edit"><div>Edit Artist</div></a>
+  
+  <form action="/artists/<%= artist.id %>/delete" method="post">
+    <input type="submit" value="Remove Artist"></input>
+  </form>
 
 <hr>
 

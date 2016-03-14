@@ -15,12 +15,20 @@ post '/artists' do
   redirect to '/artists'
 end
 
+get '/artists/:id/edit' do
+  @artist = Artist.find(params['id'])
+  erb(:"artist/edit")
+end
 
+post '/artists/:id' do
+  @artist = Artist.new(params)
+  @artist.update
+  redirect to '/artists'
+end
 
-#create
-
-#edit
-
-#update
-
+# post '/artists/:id/delete' do
+#   @artist = Artist.new(params)
+#   @artist.delete
+#   redirect to '/artists'
+# end #The artists are referenced in another table so need to work on this route
 #destroy

@@ -10,7 +10,17 @@ class Artist
   end
 
 
-  
+  def update
+    sql = "UPDATE artists SET
+            name = '#{@name}'
+            WHERE id=#{@id} "
+    SqlRunner.execute( sql )
+  end
+
+  def delete
+    sql = "DELETE FROM artists WHERE id = '#{@id}'"
+    SqlRunner.execute( sql )
+  end
 
   def self.create(params)
     sql = "INSERT INTO artists(
@@ -46,7 +56,7 @@ class Artist
     return artist.first
   end
 
-
+  
 
 
   def self.delete_all
