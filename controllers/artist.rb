@@ -6,16 +6,15 @@ get '/artists' do
   erb(:"artist/index")
 end
 
+get '/artists/new' do
+  erb(:"artist/new")
+end
+
 get '/artists/:id' do
   @artist = Artist.find(params['id'])
   @albums = @artist.albums
   erb(:"artist/show")
 end
-
-get '/artists/new' do
-  erb(:"artist/new")
-end
-
 
 post '/artists' do
   Artist.create(params)
