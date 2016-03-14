@@ -36,19 +36,27 @@ class Inventory
         return stock
       end
     end
+    return "No stock with that album id"
   end#this method returns all stock if the id is not present. How to stop this? 
 
   def stock_info(id)
     stock_item = stock_search(id)
-    album_id = stock_item.album_id
+    if stock_item.class == String 
+      return "No album to be searched for"
+    else
+      album_id = stock_item.album_id
 
-    @albums.each do |album|
-      if album.id == id
-        return album
+      @albums.each do |album|
+        if album.id == id
+          return album
+        end
       end
     end
+    return "No album with that id"
   end#Because of the above method return the whole array of stock items if it doesnt find
   #one matching the id, this affects the search in this method.NEED TO SOLVE!
+  #Also, the above does not include the QUANTITY! Will need pick anc choose what to display 
+  #to the user in the VIEWS. FIXED
 
   # def album_info(id)
   #   @albums.each do |album|
