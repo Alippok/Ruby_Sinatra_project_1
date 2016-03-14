@@ -81,9 +81,13 @@ class TestInventory < MiniTest::Test
   end
 
   def test_multiply_buy_price_by_a_given_quantity
-    result = @inventory.total_buy_price(@album4.buy_price, 5)
+    result = @inventory.total_buy_cost(@album4.buy_price, 5)
     assert_equal(15, result )
   end
 
+  def test_takes_buy_cost_away_from_account
+    result = @inventory.buy_transaction(@album4.buy_price, 5)
+    assert_equal(485, result)
+  end
 
 end

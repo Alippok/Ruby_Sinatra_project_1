@@ -72,9 +72,13 @@ class Inventory
     return "No artist with that id stocked"
   end
 
-  def total_buy_price(album_buy_price, quantity)
+  def total_buy_cost(album_buy_price, quantity)
     return album_buy_price * quantity
   end
 
-
+  def buy_transaction(album_buy_price, quantity)
+    cost = total_buy_cost(album_buy_price, quantity)
+    @account.take(cost)
+  end
+  
 end
