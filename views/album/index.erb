@@ -1,9 +1,10 @@
 <h1>Albums</h1>
-  <% album_titles = [] %>
-  <% @albums.each do |album| album_titles << album.title end%>
-     
-    <% album_titles.sort.each do |album| %>
-     <h3><%= album %></h3>
+  
+  <% @albums.each do |album| %> 
+    
+     <h3><%= album.title %></h3>
+     <a href="/albums/<%= album.id %>">View Album</a>
+       
 
-    <% end %>
+  <% end %>
      
