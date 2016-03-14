@@ -16,7 +16,7 @@ class Album
   def update
     sql = "UPDATE albums SET
             title = '#{@title}',
-            artist_id = '#{@artist_id}',
+            artist_id = #{@artist_id},
             buy_price = #{@buy_price},
             sell_price = #{sell_price}
             WHERE id=#{@id} "
@@ -31,8 +31,8 @@ class Album
     sell_price) VALUES(
     '#{params['title']}',
     '#{params['artist_id']}',
-    #{params['buy_price']},
-    #{params['sell_price']})
+     #{params['buy_price']},
+     #{params['sell_price']})
     "
     SqlRunner.execute(sql)
     return Album.new(Album.last_entry)
