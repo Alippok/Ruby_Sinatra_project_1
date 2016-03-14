@@ -96,9 +96,10 @@ class Inventory
       return "Album not stocked"
     else
       return info = {
-        'album title' => album.title,
-        'album artist' => artist.name,
-        'current quantity' => stock_item.quantity
+        'album_title' => album.title,
+        'album_artist' => artist.name,
+        'buy_price' => album.buy_price,
+        'current_quantity' => stock_item.quantity
       }
     end
   end
