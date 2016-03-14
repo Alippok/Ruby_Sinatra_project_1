@@ -100,4 +100,14 @@ class TestInventory < MiniTest::Test
     assert_equal(12, result)
   end
 
+  def test_full_stock_search_for_updating
+    result = @inventory.full_stock_search(5)
+    expectation = {
+      'album title' => '25',
+      'album artist' => 'Adele', 
+      'current quantity' => 5
+    }
+    assert_equal(expectation, result)
+  end
+
 end

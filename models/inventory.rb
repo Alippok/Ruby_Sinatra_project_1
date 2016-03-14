@@ -45,7 +45,6 @@ class Inventory
       return "No album to be searched for"
     else
       album_id = stock_item.album_id
-
       @albums.each do |album|
         if album.id == id
           return album
@@ -86,9 +85,22 @@ class Inventory
   end
 
   def updated_quantity(album_id, quantity)
-    updated_quantity = stock_quantity(album_id) + quantity
-
+    return updated_quantity = stock_quantity(album_id) + quantity
   end
 
+  def full_stock_search(album_id)
+    stock_item = stock_search(album_id)
+    album = stock_info(album_id)
+    artist = artist_info(album_id) 
+    if album.class == String
+      return "Album not stocked"
+    else
+      return info = {
+        'album title' => album.title,
+        'album artist' => artist.name,
+        'current quantity' => stock_item.quantity
+      }
+    end
+  end
 
 end
