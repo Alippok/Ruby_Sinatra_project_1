@@ -95,4 +95,9 @@ class TestInventory < MiniTest::Test
     assert_equal(5, result)
   end
 
+  def test_add_stock_quantity
+    result = @inventory.updated_quantity(5, 7)
+    assert_equal(12, result)
+  end
+
 end

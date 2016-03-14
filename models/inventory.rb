@@ -85,5 +85,10 @@ class Inventory
     return stock_search(album_id).quantity
   end
 
+  def updated_quantity(album_id, quantity)
+    updated_quantity = stock_quantity(album_id) + quantity
+
+  end
+
 
 end
