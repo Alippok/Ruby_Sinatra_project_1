@@ -1,0 +1,15 @@
+<h1><%= @album.title %></h1>
+
+<h3>Artist: <%= @artist.name %></h3>
+
+<h3>Buy Price: £<%= @album.buy_price %></h3>
+
+<h3>Sell Price: £<%= @album.sell_price %></h3>
+
+<form action="/albums/<%= @album.id %>/edit" method="get">
+  <input type="submit" value="Edit Album"></input>
+<form action="/albums/<%= @album.id %>/delete" method="post">
+  <input type="submit" value="Remove Album"></input>
+</form>
+
+

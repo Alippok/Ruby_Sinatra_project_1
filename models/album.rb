@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner.rb')
+require_relative('../models/artist.rb')
 
 class Album
 
@@ -10,6 +11,16 @@ class Album
     @artist_id = params['artist_id']
     @buy_price = params['buy_price']
     @sell_price = params['sell_price']
+  end
+
+  def update
+    sql = "UPDATE albums SET
+            title = '#{@title}',
+            artist_id = '#{@artist_id}',
+            buy_price = #{@buy_price},
+            sell_price = #{sell_price}
+            WHERE id=#{@id} "
+    SqlRunner.execute( sql )
   end
 
   def self.create(params)
@@ -48,10 +59,11 @@ class Album
 
 
   def self.artist(artist_id)
-    sql = "SELECT * FROM albums WHERE artist_id=#{artist_id}"
-    return Album.map_items( SqlRunner.execute(sql) )
+    sql = "SELECT * FROM  artists WHERE artists.id=#{artist_id}"
+    return Artist.map_item( SqlRunner.execute(sql) )
   end
 
+  
 
   def self.map_items(object)
     return object.map{|album| Album.new(album)}  
@@ -63,6 +75,10 @@ class Album
     return album.first
   end
 
+  def self.delete(id)
+    sql = "DELETE FROM albums WHERE id = '#{id}'"
+    SqlRunner.execute( sql )
+  end
 
   def self.delete_all
     sql = "DELETE FROM albums"

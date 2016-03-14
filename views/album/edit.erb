@@ -1,0 +1,13 @@
+<form action="/albums/:id" method="post">
+
+  <legend>Edit Album</legend>
+
+    <label>Title:</label>
+    <input type="text" name="title" value="<%= @album.title %>" required/>
+
+    <label>Sell Price(£):</label>
+    <input type="number" name="buy_price" value="<%= @album.sell_price %>" required/>
+
+    <input type="submit" value="Update Album"/>
+
+</form>
