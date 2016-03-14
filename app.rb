@@ -6,3 +6,6 @@ require_relative('./controllers/stock.rb')
 require_relative('./controllers/inventory.rb')
 require('pg')
 
+get '/' do
+  erb(:home)
+end
