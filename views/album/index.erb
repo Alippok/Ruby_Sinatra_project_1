@@ -1,10 +1,9 @@
 <h1>Albums</h1>
-
-  <% @albums.each do |album| %>
+  <% album_titles = [] %>
+  <% @albums.each do |album| album_titles << album.title end%>
      
-     <h1><%= album.title %></h1>
+    <% album_titles.sort.each do |album| %>
+     <h3><%= album %></h3>
 
+    <% end %>
      
-
-
-  <% end %>
