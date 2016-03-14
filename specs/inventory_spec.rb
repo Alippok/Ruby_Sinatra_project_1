@@ -18,11 +18,11 @@ class TestInventory < MiniTest::Test
     @artists = [ @artist1, @artist2, @artist3 ]
 
 
-    @album1 = Album.new( 'id' =>1, 'title'=>'Kill Em All', 'artist_id'=> @artist1.id , 'buy_price'=>6, 'sell_price'=>10)
-    @album2 = Album.new( 'id' =>2, 'title'=>'Ride the Lightning', 'artist_id'=> @artist1.id, 'buy_price'=>4, 'sell_price'=>9)
-    @album3 = Album.new( 'id' =>3, 'title'=>'Reload', 'artist_id'=> @artist1.id, 'buy_price'=>8, 'sell_price'=>15)
-    @album4 = Album.new( 'id' =>4, 'title'=>'Ballbreaker', 'artist_id'=> @artist2.id, 'buy_price'=>3, 'sell_price'=>10)
-    @album5 = Album.new( 'id' =>5, 'title'=>'25', 'artist_id'=> @artist3.id, 'buy_price'=>3, 'sell_price'=>15)
+    @album1 = Album.new( 'id' =>1, 'title'=>'Kill Em All', 'artist_id'=> @artist1.id , 'sell_price'=>10)
+    @album2 = Album.new( 'id' =>2, 'title'=>'Ride the Lightning', 'artist_id'=> @artist1.id, 'sell_price'=>9)
+    @album3 = Album.new( 'id' =>3, 'title'=>'Reload', 'artist_id'=> @artist1.id, 'sell_price'=>15)
+    @album4 = Album.new( 'id' =>4, 'title'=>'Ballbreaker', 'artist_id'=> @artist2.id, 'sell_price'=>10)
+    @album5 = Album.new( 'id' =>5, 'title'=>'25', 'artist_id'=> @artist3.id, 'sell_price'=>15)
 
     @albums = [ @album1, @album2, @album3, @album4, @album5]
 
@@ -82,12 +82,12 @@ class TestInventory < MiniTest::Test
 
   def test_multiply_buy_price_by_a_given_quantity
     result = @inventory.total_buy_cost(@album4.buy_price, 5)
-    assert_equal(15, result )
+    assert_equal(25, result )
   end
 
   def test_takes_buy_cost_away_from_account
     result = @inventory.buy_transaction(@album4.buy_price, 5)
-    assert_equal(485, result)
+    assert_equal(475, result)
   end
 
   def test_return_stock_quantity
@@ -105,7 +105,7 @@ class TestInventory < MiniTest::Test
     expectation = {
       'album_title' => '25',
       'album_artist' => 'Adele', 
-      'buy_price' => 3,
+      'buy_price' => 5,
       'current_quantity' => 5
     }
     assert_equal(expectation, result)

@@ -9,7 +9,7 @@ class Album
     @id = nil || params['id']
     @title = params['title']
     @artist_id = params['artist_id']
-    @buy_price = params['buy_price']
+    @buy_price = 5 #params['buy_price']
     @sell_price = params['sell_price']
   end
 
