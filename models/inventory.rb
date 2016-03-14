@@ -80,5 +80,10 @@ class Inventory
     cost = total_buy_cost(album_buy_price, quantity)
     @account.take(cost)
   end
-  
+
+  def stock_quantity(album_id)
+    return stock_search(album_id).quantity
+  end
+
+
 end
