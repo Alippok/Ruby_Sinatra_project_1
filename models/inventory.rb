@@ -76,6 +76,12 @@ class Inventory
     return album_sell_price * quantity
   end
 
+  def sell_transaction(album_sell_price, quantity)
+    amount = total_sell_amount(album_sell_price, quantity)
+    @account.add(amount)
+    return @account.balance
+  end
+
 
   def total_buy_cost(album_buy_price, quantity)
     return album_buy_price * quantity
@@ -84,6 +90,7 @@ class Inventory
   def buy_transaction(album_buy_price, quantity)
     cost = total_buy_cost(album_buy_price, quantity)
     @account.take(cost)
+    return @account.balance
   end
 
   def stock_quantity(album_id)

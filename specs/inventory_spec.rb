@@ -134,4 +134,8 @@ class TestInventory < MiniTest::Test
     assert_equal(50, result)
   end
 
+  def test_sale_amount_is_added_to_account
+    result = @inventory.sell_transaction(@album1.sell_price, 5)
+    assert_equal(550, result)
+  end
 end
