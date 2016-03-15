@@ -1,0 +1,11 @@
+<form action="/stock" method="post">
+  <legend>Add album to be Stocked</legend>
+    <select name="album_id">
+      <% @albums.each do |album| %>
+      <option value="<%= album.id %>"><%= album.title %></option>
+      <% end %>
+    </select>
+  <input type="number" name="quantity" value=0 readonly></input>
+  <input type="submit" value="Create Stock Item"/>
+
+</form>

@@ -1,5 +1,6 @@
 require_relative('../db/sql_runner.rb')
 
+
 class Stock
 
   attr_reader(:id, :artist_id, :album_id, :quantity)
@@ -10,7 +11,7 @@ class Stock
     @quantity = nil || params['quantity']
   end
 
-  def stock_info()
+  
 
   def self.create(params)
     sql = "INSERT INTO stocks
@@ -39,6 +40,12 @@ class Stock
     sql = "SELECT * FROM stocks"
     return Stock.map_items( SqlRunner.execute(sql) ) 
   end
+  
+  def self.full_info
+    sql = "SELECT * from albums INNER JOIN artists ON artist_id = artists.id INNER JOIN stocks ON album_id = albums.id"
+    return SqlRunner.execute( sql )
+  end
+
 
   def self.find(id)
     sql = "SELECT * from stocks WHERE id =#{id}"

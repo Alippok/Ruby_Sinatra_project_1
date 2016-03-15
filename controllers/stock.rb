@@ -5,6 +5,10 @@ require_relative('../models/artist.rb')
 require('pry-byebug')
 
 
+get '/stock' do
+  @stock_views = StockView.map_items(Stock.full_info)
+  erb(:"stock/index")
+end
 
 get '/stock/new' do
   @albums = Album.all
@@ -16,11 +20,8 @@ post '/stock' do
   redirect to '/'
 end
 
-get '/stock' do
-  
-  @stock_views = StockView.map_items(Stock.full_info)
-  pry.bye_bug
-end
+
+
 
 
 #Finish off stock views

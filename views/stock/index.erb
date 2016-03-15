@@ -1,20 +1,22 @@
-<h1>Stock</h1>
+<div id="stock_table">
+  <h3>Stock</h3>
 
-  <table>
-    <thead>
-      <th>Album</th>
-      <th>Artist</th>
-      <th>Quantity in Stock</th>
-    </thead>
+    <table>
+      <thead>
+        <th>Album</th>
+        <th>Artist</th>
+        <th>Quantity in Stock</th>
+      </thead>
 
-    <tbody>
-      <% @stock_views.each do |stock_item| %>
-        <tr>
-          <td><%= stock_item.album_title %></td>
-          <td><%= stock_item.artist_name %></td>
-          <td><%= stock_item.quantity %></td>
-        </tr>
-      <% end %>
-    </tbody>
+      <tbody>
+        <% @stock_views.each do |stock_item| %>
+          <tr>
+            <td><%= stock_item.album_title %></td>
+            <td><%= stock_item.artist_name %></td>
+            <td><%= stock_item.quantity %></td>
+          </tr>
+        <% end %>
+      </tbody>
 
-  </table>
+    </table>
+</div>
