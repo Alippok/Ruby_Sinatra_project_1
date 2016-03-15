@@ -159,7 +159,12 @@ class Inventory
   end
 
   def markup(buy_price, sell_price)
-    return sell_price - buy_price
+    return sell_price.to_i - buy_price.to_i
   end
 
+  def total_revenue(markup_amount, quantity)
+    return markup_amount.to_i * quantity.to_i
+  end
+
+  #do a total possible sales method by:    markup * quanity??
 end

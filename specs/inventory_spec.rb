@@ -156,6 +156,10 @@ class TestInventory < MiniTest::Test
     assert_equal(10, result)
   end
 
+  def test_total_possible_revenue
+    result = @inventory.total_revenue(14, 20)
+    assert_equal(280, result)
+  end
 
 
 end
