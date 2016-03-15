@@ -99,7 +99,10 @@ class Inventory
 
   def updated_quantity(album_id, quantity)
       return updated_quantity = stock_quantity(album_id).to_i + quantity.to_i
-    
+  end
+
+  def sell_quantity(album_id, quantity)
+    return quantity_after_sale = stock_quantity(album_id).to_i - quantity.to_i
   end
 
   def full_stock_search(album_id)

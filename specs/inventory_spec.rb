@@ -138,4 +138,13 @@ class TestInventory < MiniTest::Test
     result = @inventory.sell_transaction(@album1.sell_price, 5)
     assert_equal(550, result)
   end
+
+  def test_sell_quantity_is_taken_from_stock_quantity
+    result = @inventory.sell_quantity(5, 2)
+    assert_equal(3, result)
+  end
+
+
+
+
 end
