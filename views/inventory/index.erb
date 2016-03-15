@@ -1,9 +1,9 @@
 
 <h1>Inventory</h1>
 
-<div id="account_balance">
+<!-- <div id="account_balance">
   <h3>Account Balance: £<%= @inventory.account_balance %> </h3>
-</div>
+</div> -->
 
 
 <%= erb(:"stock/index") %> 
@@ -20,7 +20,23 @@
 
 </form>
 
-<!-- <%= @inventory.updated_quantity("1", 9) %> -->
+<form action="/inventory/buy" method="post">
+  <select name="album_id">
+    <% @stock_views.each do |stock_item| %>
+        <option value="<%= stock_item.album_id %>"><%= stock_item.album_title %></option>
+    <% end %>
+  </select>
+  
+  <label>Quantity:</label>
+  <input type="number" name="quantity" required/>
+
+  <button type="submit">Buy Stock</button>
+
+
+</form>
+
+
+
 
 
 

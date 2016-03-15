@@ -11,14 +11,14 @@ require('pry-byebug')
 get '/inventory' do
  @stock_views = StockView.map_items(Stock.full_info)
  @account = Account.new(500)
- params = {
+ options = {
   'stocks' => Stock.all,
   'albums' => Album.all,
   'artists'=> Artist.all,
   'account'=> @account
  }
 
- @inventory = Inventory.new(params)
+ @inventory = Inventory.new(options)
  # pry.bye_bug
  erb(:"inventory/index")
 
@@ -27,13 +27,30 @@ end
 get '/inventory/stock' do
   @stock_views = StockView.map_items(Stock.full_info)
   @account = Account.new(500)
-  params = {
+  options = {
    'stocks' => Stock.all,
    'albums' => Album.all,
    'artists'=> Artist.all,
    'account'=> @account
   }
 
-  @inventory = Inventory.new(params)
+  @inventory = Inventory.new(options)
   erb(:"inventory/show")
+end
+
+post '/inventory/buy' do
+  @stock_views = StockView.map_items(Stock.full_info)
+  @account = Account.new(500)
+  options = {
+   'stocks' => Stock.all,
+   'albums' => Album.all,
+   'artists'=> Artist.all,
+   'account'=> @account
+  }
+
+  @inventory = Inventory.new(options)
+  new_stock = @inventory.buy_stock( params['album_id'], params['quantity'].to_i)
+  stock = Stock.new(new_stock)
+  stock.update
+  redirect to '/inventory'
 end

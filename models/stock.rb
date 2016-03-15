@@ -24,10 +24,10 @@ class Stock
     return Stock.new(Stock.last_entry)    
   end
   
-  def update()
+  def update
     sql = "UPDATE stocks set
     album_id = #{@album_id}, 
-    quantity = #{@quantity} where id = #{@id}"
+    quantity = #{@quantity} where album_id = #{@album_id}"
     SqlRunner.execute(sql)
   end
   
