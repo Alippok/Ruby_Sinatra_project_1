@@ -11,6 +11,11 @@ class Artist
   end
 
 
+  def albums
+    sql = "SELECT * FROM albums where artist_id = '#{@id}'"    
+    return Album.map_items(SqlRunner.execute( sql ))
+  end
+  
   def update
     sql = "UPDATE artists SET
             name = '#{@name}'
@@ -38,10 +43,7 @@ class Artist
     return Artist.map_item(artist)
   end
   
-  def albums
-    sql = "SELECT * FROM albums where artist_id = '#{@id}'"    
-    return Album.map_items(SqlRunner.execute( sql ))
-  end
+  
 
   def self.last_entry
     sql = "SELECT * from artists ORDER BY id DESC limit 1;"

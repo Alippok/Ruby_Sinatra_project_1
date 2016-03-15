@@ -33,7 +33,6 @@ post '/artists/:id' do
 end
 
 post '/artists/:id/delete' do
-
   Artist.delete(params['id'])
   redirect to '/artists'
 end #The artists are referenced in another table so need to work on this route

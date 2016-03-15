@@ -4,6 +4,7 @@
 
   <h3>Name: <%= artist.name %></h3>
   
+  <a href="/artists/<%= artist.id %>"><div> View Artist and Artist's Albums</div></a>
   <a href="/artists/<%= artist.id %>/edit"><div>Edit Artist</div></a>
   
   <form action="/artists/<%= artist.id %>/delete" method="post">
