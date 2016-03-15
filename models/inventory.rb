@@ -116,6 +116,7 @@ class Inventory
         'album_title' => album.title,
         'album_artist' => artist.name,
         'buy_price' => album.buy_price,
+        'sell_price'=> album.sell_price,
         'current_quantity' => stock_item.quantity
       }
     end
@@ -139,9 +140,9 @@ class Inventory
       if info.class == String
         return info
       else
-        new_quantity = updated_quantity(album_id, quantity) 
+        new_quantity = sell_quantity(album_id, quantity) 
 
-        sell_transaction(info['buy_price'], quantity)
+        sell_transaction(info['sell_price'], quantity)
         
         return new_stock = {'album_id' => album_id, 'quantity' => new_quantity}
       end

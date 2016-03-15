@@ -106,6 +106,7 @@ class TestInventory < MiniTest::Test
       'album_title' => '25',
       'album_artist' => 'Adele', 
       'buy_price' => 5,
+      'sell_price'=> 15,
       'current_quantity' => 5
     }
     assert_equal(expectation, result)
@@ -142,6 +143,12 @@ class TestInventory < MiniTest::Test
   def test_sell_quantity_is_taken_from_stock_quantity
     result = @inventory.sell_quantity(5, 2)
     assert_equal(3, result)
+  end
+
+  def test_sell_stock
+    result = @inventory.sell_stock(5, 2)
+    expectation = { 'album_id' => @album5.id, 'quantity' => 3}
+    assert_equal(expectation, result)
   end
 
 
