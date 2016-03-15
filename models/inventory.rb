@@ -158,4 +158,8 @@ class Inventory
     end
   end
 
+  def markup(buy_price, sell_price)
+    return sell_price - buy_price
+  end
+
 end

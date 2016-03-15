@@ -151,6 +151,10 @@ class TestInventory < MiniTest::Test
     assert_equal(expectation, result)
   end
 
+  def test_inventory_can_calculate_markup_for_an_album
+    result = @inventory.markup(4, 14)
+    assert_equal(10, result)
+  end
 
 
 
