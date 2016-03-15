@@ -129,4 +129,9 @@ class TestInventory < MiniTest::Test
     assert_equal(expectation, result)
   end
 
+  def test_total_revenue_from_sale
+    result = @inventory.total_sell_amount(@album1.sell_price, 5)
+    assert_equal(50, result)
+  end
+
 end

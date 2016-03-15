@@ -71,6 +71,12 @@ class Inventory
     return "No artist with that id stocked"
   end
 
+
+  def total_sell_amount(album_sell_price, quantity)
+    return album_sell_price * quantity
+  end
+
+
   def total_buy_cost(album_buy_price, quantity)
     return album_buy_price * quantity
   end
@@ -117,6 +123,19 @@ class Inventory
       return new_stock = {'album_id' => album_id, 'quantity' => new_quantity}
     end
   end
+
+  def sell_stock(album_id, quantity)
+      info = full_stock_search(album_id)
+      if info.class == String
+        return info
+      else
+        new_quantity = updated_quantity(album_id, quantity) 
+
+        sell_transaction(info['buy_price'], quantity)
+        
+        return new_stock = {'album_id' => album_id, 'quantity' => new_quantity}
+      end
+    end
 
   def quantity_check(quantity)
     if quantity.to_i >= 10
