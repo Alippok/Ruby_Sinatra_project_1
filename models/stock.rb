@@ -42,7 +42,7 @@ class Stock
   end
   
   def self.full_info
-    sql = "SELECT * from albums INNER JOIN artists ON artist_id = artists.id INNER JOIN stocks ON album_id = albums.id"
+    sql = "SELECT * from albums INNER JOIN artists ON artist_id = artists.id INNER JOIN stocks ON album_id = albums.id ORDER BY name ASC"
     return SqlRunner.execute( sql )
   end
 
