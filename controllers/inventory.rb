@@ -26,7 +26,7 @@ end
 
 get '/inventory/stock' do
   @stock_views = StockView.map_items(Stock.full_info)
-  @account = Account.new(500)
+  @account = Account.new(params['account_balance'].to_i)
   options = {
    'stocks' => Stock.all,
    'albums' => Album.all,
@@ -40,7 +40,7 @@ end
 
 post '/inventory/buy' do
   @stock_views = StockView.map_items(Stock.full_info)
-  @account = Account.new(500)
+  @account = Account.new(params['account_balance'].to_i)
   options = {
    'stocks' => Stock.all,
    'albums' => Album.all,
@@ -50,6 +50,23 @@ post '/inventory/buy' do
 
   @inventory = Inventory.new(options)
   new_stock = @inventory.buy_stock( params['album_id'], params['quantity'].to_i)
+  stock = Stock.new(new_stock)
+  stock.update
+  redirect to '/inventory'
+end
+
+post '/inventory/sell' do
+  @stock_views = StockView.map_items(Stock.full_info)
+  @account = Account.new(params['account_balance'].to_i)
+  options = {
+   'stocks' => Stock.all,
+   'albums' => Album.all,
+   'artists'=> Artist.all,
+   'account'=> @account
+  }
+
+  @inventory = Inventory.new(options)
+  new_stock = @inventory.sell_stock( params['album_id'], params['quantity'].to_i)
   stock = Stock.new(new_stock)
   stock.update
   redirect to '/inventory'

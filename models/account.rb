@@ -7,11 +7,11 @@ class Account
   end
 
   def add(amount)
-     return @balance += amount
+     return @balance += amount.to_i
   end
 
   def take(amount) 
-    return @balance -= amount
+    return @balance -= amount.to_i
   end
 
 

@@ -1,9 +1,9 @@
 
 <h1>Inventory</h1>
 
-<!-- <div id="account_balance">
+<div id="account_balance">
   <h3>Account Balance: £<%= @inventory.account_balance %> </h3>
-</div> -->
+</div>
 
 
 <%= erb(:"stock/index") %> 
@@ -11,6 +11,7 @@
 
  
 <form action="/inventory/stock" method="get">
+  <input type="hidden" name="account_balance" value="@inventory.account_balance"/>
   <select name="id">
     <% @inventory.albums.each do |album| %>
     <option value="<%= album.id %>"><%= album.title %></option>
@@ -21,6 +22,7 @@
 </form>
 
 <form action="/inventory/buy" method="post">
+  <input type="hidden" name="account_balance" value="@inventory.account_balance"/>
   <select name="album_id">
     <% @stock_views.each do |stock_item| %>
         <option value="<%= stock_item.album_id %>"><%= stock_item.album_title %></option>
@@ -31,6 +33,23 @@
   <input type="number" name="quantity" required/>
 
   <button type="submit">Buy Stock</button>
+
+
+</form>
+
+
+<form action="/inventory/sell" method="post">
+  <input type="hidden" name="account_balance" value="@inventory.account_balance"/>
+  <select name="album_id">
+    <% @stock_views.each do |stock_item| %>
+        <option value="<%= stock_item.album_id %>"><%= stock_item.album_title %></option>
+    <% end %>
+  </select>
+  
+  <label>Quantity:</label>
+  <input type="number" name="quantity" required/>
+
+  <button type="submit">Sell Stock</button>
 
 
 </form>
