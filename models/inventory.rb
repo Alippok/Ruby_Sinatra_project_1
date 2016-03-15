@@ -2,10 +2,10 @@ require_relative('../db/sql_runner.rb')
 
 class Inventory
 
-  attr_reader( :stocks, :albums, :artitsts, :account)
+  attr_reader( :stock, :albums, :artitsts, :account)
 
   def initialize(params)
-   @stocks = params['stocks']
+   @stock = params['stocks']
    @albums = params['albums']
    @artists = params['artists']
    @account = params['account']
@@ -23,7 +23,7 @@ class Inventory
   def stocks
     stock_hash = {}
     index = 1
-    @stocks.each do |stock|
+    @stock.each do |stock|
       stock_hash["Stock #{index}"] = [stock.album_id, stock.quantity]
       index +=1
     end
@@ -31,7 +31,7 @@ class Inventory
   end
 
   def stock_search(id)
-    @stocks.each do |stock|
+    @stock.each do |stock|
       if stock.album_id == id
         return stock
       end
@@ -85,7 +85,7 @@ class Inventory
   end
 
   def updated_quantity(album_id, quantity)
-      return updated_quantity = stock_quantity(album_id) + quantity
+      return updated_quantity = stock_quantity(album_id).to_i + quantity.to_i
     
   end
 
@@ -115,6 +115,16 @@ class Inventory
       buy_transaction(info['buy_price'], quantity)
       
       return new_stock = {'album_id' => album_id, 'quantity' => new_quantity}
+    end
+  end
+
+  def quantity_check(quantity)
+    if quantity.to_i >= 10
+      return "HIGH - no action needed"
+    elsif quantity.to_i >= 5
+      return "MEDIUM - order stock soon"
+    else quantity.to_i >= 1
+      return "LOW - order stock now"
     end
   end
 

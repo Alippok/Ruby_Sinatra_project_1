@@ -1,0 +1,31 @@
+
+<h1>Inventory</h1>
+
+<div id="account_balance">
+  <h3>Account Balance: £<%= @inventory.account_balance %> </h3>
+</div>
+
+
+<%= erb(:"stock/index") %> 
+<br>
+
+ 
+<form action="/inventory/stock" method="get">
+  <select name="id">
+    <% @inventory.albums.each do |album| %>
+    <option value="<%= album.id %>"><%= album.title %></option>
+    <% end %>
+  </select>
+  <button type="submit">See Stocked Album</button>
+
+</form>
+
+<!-- <%= @inventory.updated_quantity("1", 9) %> -->
+
+
+
+
+
+
+
+  

@@ -1,0 +1,17 @@
+<h1>Stock Item</h1>
+<% stock_item = @inventory.full_stock_search(params['id']) %>
+  <% if stock_item.class == String %>
+    <h3><%= stock_item %></h3>
+    
+  <% else %>
+    <h3>Album Title: <%= stock_item['album_title'] %></h3>
+
+    <h3>Artist: <%= stock_item['album_artist'] %></h3>
+
+    <h3>Buy price per album: £<%= stock_item['buy_price'] %></h3>
+
+    <h3>Current Stock Quantity: <%= stock_item['current_quantity'] %></h3>
+
+    <h3> Stock Quantity Status: <%= @inventory.quantity_check(stock_item['current_quantity']) %>
+
+  <% end %>
