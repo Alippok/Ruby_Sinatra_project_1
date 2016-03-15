@@ -10,8 +10,12 @@
 
     <h3>Buy price per album: £<%= stock_item['buy_price'] %></h3>
 
+    <h3>Retail price per album: £<%= stock_item['sell_price'] %></h3>
+
     <h3>Current Stock Quantity: <%= stock_item['current_quantity'] %></h3>
 
     <h3> Stock Quantity Status: <%= @inventory.quantity_check(stock_item['current_quantity']) %>
+
+    <h3>Markup: £<%= @inventory.markup(stock_item['buy_price'], stock_item['sell_price'] ) %></h3>
 
   <% end %>
