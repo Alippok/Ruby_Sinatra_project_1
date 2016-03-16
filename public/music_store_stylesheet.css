@@ -308,3 +308,88 @@ a{
   background-color: #35342f;
   color:white;
 }
+
+
+/*Album Show*/
+
+.show_album{
+  position:relative;
+  top:20px;
+  left:30%;
+  width:30%;
+  background-color: #f1f2f0;
+  box-shadow: 0px 0px 10px black;
+  border-radius: 5px;
+  padding:2px;
+  padding-left:2%;
+  font-size:1.5vw;
+  overflow: hidden;
+}
+
+.show_album_info{
+  position:relative;
+  left:80%;
+  width:100%;
+  background-color: #f1f2f0;
+  box-shadow: 0px 0px 10px black;
+  border-radius:5px;
+  margin-bottom:10px;
+  text-align:center;
+  transition:1s ease all;
+}
+
+.show_album_info:hover{
+  left:2%;
+  background-color:#35342f;
+  color:white;
+}
+
+.album_actions{
+  position:relative;
+  top:10px;
+  left:90%;
+  width:100%;
+  margin-bottom:-5px;
+  text-align:center;
+  background-color: #f1f2f0;
+  box-shadow: 0px 0px 10px black;
+  border-radius: 5px;
+  transition:1s ease all;
+}
+.album_actions button{
+  font-family: 'Alfa Slab One', cursive;
+  border-radius:5px;
+  border:none;
+  width:70%;
+  background-color: transparent;
+  transition: 1s ease all;
+}
+.album_actions button:hover{
+  transform: scale(1.5);
+  color:white;
+}
+
+.album_actions:hover{
+  left:2%;
+  background-color: #35342f;
+}
+
+#albums_home{
+  position:relative;
+  top:80px;
+  left:43%;
+  clear:both;
+  background-color: #f1f2f0;
+  width:10%;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px black;
+  text-align:center;
+  transition:1s ease all;
+}
+
+#albums_home:hover{
+  background-color: #37bbe4;
+}
+
+/*Create album view*/
+
