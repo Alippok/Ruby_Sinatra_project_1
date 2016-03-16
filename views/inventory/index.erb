@@ -11,15 +11,15 @@
 
 <form class="database_search" action="/inventory/search" method="get">
 
-  <label>Search Albums:</label>
+  <legend>Search Albums</legend>
     <input type="text" name="search_pattern"/>
   <button type="submit">Search</button>
 
 </form>
 
  
-<form class="inventory_actions" action="/inventory/stock" method="get">
-
+<form class="inventory_actions" id="search_stock" action="/inventory/stock" method="get">
+  <legend>Search Stock</legend>
   <input type="hidden" name="account_balance" value="@inventory.account_balance"/>
 
   <select name="id">
@@ -32,8 +32,8 @@
 </form>
 
 
-<form class="inventory_actions" action="/inventory/buy" method="post">
-
+<form class="inventory_actions" id="buy_stock" action="/inventory/buy" method="post">
+  <legend>Buy Stock</legend>
   <input type="hidden" name="account_balance" value="@inventory.account_balance"/>
 
   <select name="album_id">
@@ -51,8 +51,8 @@
 
 
 
-<form class="inventory_actions" action="/inventory/sell" method="post">
-
+<form class="inventory_actions" id="sell_stock" action="/inventory/sell" method="post">
+  <legend>Sell Stock</legend>
   <input type="hidden" name="account_balance" value="@inventory.account_balance"/>
 
   <select name="album_id">

@@ -484,7 +484,7 @@ button{
   box-shadow: 0px 0px 10px black;
   padding:5px;
   font-size:1.5vw;
-  border-radius: 5px;
+  border-radius: 10px;
   border-collapse: collapse;
 }
 
@@ -558,4 +558,79 @@ button{
 
 #new_artist_form{
   margin-left:35%;
+}
+
+
+/*Inventory index page*/
+.database_search{
+  float:left;
+  background-color: #f1f2f0;
+  border-radius:5px;
+  box-shadow: 0px 0px 10px black;
+  width:20%;
+  padding:10px;
+  margin-left:5%;
+  margin-bottom:30px;
+  transition:1s ease all;
+}
+.database_search legend{
+  font-size:2vw;
+  margin-left:9%;
+}
+.database_search input[type="text"]{
+  margin-left:8%;
+}
+.database_search button, .inventory_actions button{
+  margin-top:10px;
+  margin-left:33%;
+  margin-bottom:10px;
+  font-size:1.5vw;
+  font-family:'Alfa Slab One', cursive;
+  border-radius: 5px;
+  border:none;
+  background-color: white;
+  box-shadow:0px 0px 10px black;
+  transition:1s ease all;
+}
+
+.inventory_actions{
+  float:left;
+  background-color: #f1f2f0;
+  border-radius:5px;
+  box-shadow: 0px 0px 10px black;
+  width:20%;
+  padding:10px;
+  margin-left:5%;
+  margin-bottom:30px;
+  transition:1s ease all;
+}
+
+.inventory_actions legend{
+  font-size:2vw;
+  margin-left:22%;
+}
+
+.inventory_actions:hover, .database_search:hover{
+  background-color: #37bbe4;
+}
+/*Just change button to background color-dark one- and font colour white when hovered over*/
+
+#search_stock, #sell_stock{
+  float:right;
+  margin-right:5%;
+}
+#search_stock legend{
+  margin-left:16%;
+}
+
+#buy_stock{
+  clear:both;
+}
+
+#search_stock button{
+  width:90%;
+  margin-left:6%;
+}
+#buy_stock button, #sell_stock button{
+  margin-left:27%;
 }
