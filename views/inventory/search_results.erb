@@ -1,16 +1,16 @@
 <h1>Search Results</h1>
-<div class="search_results">
-
-<% @result.each do |album| %>
-  <h3> <%= album.title %> </h3> 
-  <h3> <%= album.buy_price  %></h3>
-  <h3> <%= album.sell_price  %></h3>
-
-<% end %>
 
 
-
+  <% @result.each do |album| %>
+    <div class="search_results">
+      <h3> <%= album.title %> </h3> 
+      <h3> <%= album.buy_price  %></h3>
+      <h3> <%= album.sell_price  %></h3>
+    </div>
+  <% end %>
 
 
 
-</div>
+
+
+
