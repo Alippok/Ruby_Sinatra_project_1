@@ -454,4 +454,16 @@ button{
 }
 
 
+/*Album edit view*/
+
+#album_form_edit legend{
+  margin-left:30%;
+}
+#album_form_edit button{
+  margin-left:30%;
+}
+#album_form_edit input{
+  margin-left:22%;
+}
+
 
