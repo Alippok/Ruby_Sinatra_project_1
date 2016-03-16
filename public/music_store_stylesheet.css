@@ -349,7 +349,7 @@ a{
   top:10px;
   left:90%;
   width:100%;
-  margin-bottom:-5px;
+  margin-bottom:20px;
   text-align:center;
   background-color: #f1f2f0;
   box-shadow: 0px 0px 10px black;
@@ -392,4 +392,66 @@ a{
 }
 
 /*Create album view*/
+
+.album_form{
+  position:relative;
+  top:20px;
+  left:35%;
+  background-color: #f1f2f0;
+  box-shadow: 0px 0px 10px black;
+  border-radius: 5px;
+  padding:5px;
+  width:30%;
+  text-align: center;
+
+}
+
+.album_form legend,
+label,
+input[type="text"],
+input[type="number"],
+button{
+  display:block;
+  margin-bottom:5px;
+  font-size:1.5vw;
+}
+.album_form legend,
+input[type="text"],
+input[type="number"],
+button{
+  margin-left:20%;
+  border-radius: 5px
+}
+.album_form legend{
+  font-size:2vw;
+}
+.album_form fieldset{
+  width:85%;
+  border:1px solid black;
+  margin-left:4.5%;
+  margin-bottom:10px;
+  border-radius: 5px;
+  transition:1s ease all;
+}
+.album_form fieldset:hover{
+  background-color: #37bbe4;
+  box-shadow: 0px 0px 10px black;
+}
+.album_form select {
+  font-family:'Alfa Slab One', cursive;
+  font-size: 1vw;
+}
+.album_form button{
+  border:none;
+  margin-left:22%;
+  background-color: white;
+  box-shadow: 0px 0px 10px black;
+  font-family:'Alfa Slab One', cursive;
+  transition:1s ease all;
+}
+.album_form button:hover{
+  background-color: #37bbe4;
+}
+
+
 

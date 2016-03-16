@@ -1,25 +1,30 @@
 <form class="album_form" action="/albums" method="post">
-  <legend>Create an Album</legend>
-    <label>Album Title:</label>
-    <input type="text" name="title" required/>
-
-    <label>Album Retail Price:</label>
-    <input type="number" name="sell_price" required/>
-
-    <label>Global Album Buy Price:</label>
-    <input type=number name="buy_price" value="5" readonly></input>
-    
-    <label>Album Artist:</label>
-    <select name="artist_id">
-      <% @artists.each do |artist| %>
-      <option value="<%= artist.id %>"><%= artist.name %></option>
-
-      <% end %>
-    </select>
-
-    <input type="submit" value="Add Album to Artist"></input>
   
+  <legend>Create an Album</legend>
+    <fieldset class="album_info">
+      <label>Album Artist:</label>
+      <select name="artist_id">
+        <% @artists.each do |artist| %>
+        <option value="<%= artist.id %>"><%= artist.name %></option>
+        <% end %>
+      </select>
+    </fieldset>
 
+    <fieldset class="album_info">
+      <label>Album Title:</label>
+      <input type="text" name="title" required/>
+    </fieldset>
 
+    <fieldset class="album_info">
+      <label>Album Retail Price:</label>
+      <input type="number" name="sell_price" required/>
+    </fieldset>
 
+    <fieldset class="album_info">
+      <label>Global Album Buy Price:</label>
+      <input type=number name="buy_price" value="5" readonly></input>
+    </fieldset>
+    
+      <button type="submit">Add Album to Artist</button>
+  
 </form>
