@@ -2,3 +2,8 @@ body{
   background-color: #e1e0dd;
   font-family: 'Alfa Slab One', cursive;
 }
+
+a{
+  text-decoration: none;
+
+}

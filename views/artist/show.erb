@@ -1,10 +1,10 @@
 
 <h2><%= @artist.name %></h2>
-
+<h3>Albums:</h3>
   <% @albums.each do |album| %>
     <div class="artists_albums">
-      <h3>Album:<%= album.title %></h3>
-  
+      
+        <div class="album_name"><%= album.title %></div>
     </div>
 
   <% end %>
