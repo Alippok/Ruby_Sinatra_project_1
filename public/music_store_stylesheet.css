@@ -10,6 +10,7 @@ header{
   background-color:#f1f2f0;
   font-size:3vw;
   box-shadow: 0px 0px 10px black;
+  border-radius: 5px;
 }
 
 a{
@@ -23,6 +24,7 @@ a{
   padding:2px;
   background-color:#f1f2f0;
   box-shadow: 0px 0px 10px black;
+  border-radius: 5px;
   font-size:2vw;
   text-align: center;
   height:35px;
@@ -45,6 +47,7 @@ a{
   background-color:#f1f2f0;
   margin:2px;
   box-shadow: 0px 0px 5px black;
+  border-radius: 5px;
   text-align:center;
   font-size:1.5vw;
   transition:1s ease all;
@@ -67,6 +70,7 @@ a{
   background-color:#f1f2f0;
   width:10%;
   box-shadow: 0px 0px 10px black;
+  border-radius: 5px;
   text-align:center;
   font-size:2vw;
 }
@@ -79,6 +83,7 @@ a{
   margin-bottom:5%;
   width:25%;
   height:160px;
+  border-radius: 5px;
   font-size:1.5vw;
   overflow:hidden;
   transition:1s ease all;
@@ -97,6 +102,7 @@ a{
   margin-bottom:5px;
   padding-left:3%;
   box-shadow: 0px 0px 10px black;
+  border-radius: 5px;
   text-align:center;
   transition:1s ease all;
 }
@@ -114,6 +120,7 @@ a{
   text-align:center;
   background-color: #f1f2f0;
   box-shadow: 0px 0px 10px black;
+  border-radius: 5px;
   transition:1s ease all;
 }
 #artist_actions input{
@@ -158,6 +165,7 @@ a{
   text-align:center;
   background-color: #f1f2f0;
   box-shadow: 0px 0px 10px black;
+  border-radius: 5px;
 }
 
 .artists_albums{
@@ -170,9 +178,13 @@ a{
   font-size:1.5vw;
   text-align: center;
   box-shadow: 0px 0px 10px black;
+  border-radius: 5px;
   overflow: hidden;
+  transition: 1s ease all;
 }
-
+.artists_albums:hover{
+  background-color: #37bbe4;
+}
 .album_name{
   width:100%;
   margin-bottom:10px;
@@ -184,8 +196,28 @@ a{
   width:100%;
   background-color:#f1f2f0;
   box-shadow: 0px 0px 5px black;
+  border-radius: 5px;
+  transition: 1s ease all;
+}
+.album_link:hover{
+  left:5%;
+  background-color: #35342f;
+  color:white;
 }
 
 #artists_home{
+  position:relative;
+  top:10px;
+  left:43%;
   clear:both;
+  background-color: #f1f2f0;
+  width:10%;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px black;
+  text-align:center;
+  transition:1s ease all;
+}
+
+#artists_home:hover{
+  background-color: #37bbe4;
 }

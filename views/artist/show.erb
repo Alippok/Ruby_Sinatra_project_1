@@ -1,16 +1,16 @@
 
 <h2 class="artist_show"><%= @artist.name %></h2>
-<h3>Albums:</h3>
+
   <% @albums.each do |album| %>
     <div class="artists_albums">
       
         <div class="album_name"><%= album.title %></div>
-        <div class="album_link"><a href="/albums/<%= album.id %>">View Album</a></div>
+        <a href="/albums/<%= album.id %>"><div class="album_link">View Album</div></a>
     </div>
 
   <% end %>
 
 
-<div id="artist_home"><a href="/artists">Artists Home</a></div>
+<div id="artists_home"><a href="/artists">Artists Home</a></div>
 
 
