@@ -63,7 +63,7 @@ a{
 
 /*Artists index page styling*/
 
-h2{
+.artist_index{
   background-color:#f1f2f0;
   width:10%;
   box-shadow: 0px 0px 10px black;
@@ -148,4 +148,44 @@ h2{
 
 #home_link:hover{
   background-color: #37bbe4;
+}
+
+
+
+/*Artist show view*/
+.artist_show{
+  width:20%;
+  text-align:center;
+  background-color: #f1f2f0;
+  box-shadow: 0px 0px 10px black;
+}
+
+.artists_albums{
+  float:left;
+  width:18%;
+  background-color: #f1f2f0;
+  padding:5px;
+  margin-bottom: 10px;
+  margin-right:5%;
+  font-size:1.5vw;
+  text-align: center;
+  box-shadow: 0px 0px 10px black;
+  overflow: hidden;
+}
+
+.album_name{
+  width:100%;
+  margin-bottom:10px;
+}
+
+.album_link{
+  position:relative;
+  left:82%;
+  width:100%;
+  background-color:#f1f2f0;
+  box-shadow: 0px 0px 5px black;
+}
+
+#artists_home{
+  clear:both;
 }
