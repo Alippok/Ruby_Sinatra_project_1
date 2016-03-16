@@ -1,7 +1,8 @@
 <h2>Artists</h2>
 
-<% @artists.each do |artist| %>
 
+<% @artists.each do |artist| %>
+<div class="artist_info">
   <h3>Name: <%= artist.name %></h3>
   
   <a href="/artists/<%= artist.id %>"><div> View Artist and Artist's Albums</div></a>
@@ -11,7 +12,8 @@
     <input type="submit" value="Remove Artist"></input>
   </form>
 
-<hr>
+<div class="artist_info">
 
 <% end %>
 
+<a href="/"><div id="home_link">Home</div></a>
