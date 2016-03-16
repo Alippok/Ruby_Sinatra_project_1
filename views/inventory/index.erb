@@ -1,5 +1,5 @@
 
-<h1>Inventory</h1>
+<h2>Inventory</h2>
 
 <!-- <div id="account_balance">
   <h3>Account Balance: £<%= @inventory.account_balance %> </h3>
@@ -10,25 +10,32 @@
 <br>
 
 <form class="database_search" action="/inventory/search" method="get">
+
   <label>Search Albums:</label>
-  <input type="text" name="search_pattern"/>
+    <input type="text" name="search_pattern"/>
+  <button type="submit">Search</button>
+
 </form>
 
  
 <form class="inventory_actions" action="/inventory/stock" method="get">
+
   <input type="hidden" name="account_balance" value="@inventory.account_balance"/>
+
   <select name="id">
     <% @inventory.albums.each do |album| %>
     <option value="<%= album.id %>"><%= album.title %></option>
     <% end %>
   </select>
-  <button type="submit">See Stocked Album</button>
 
+  <button type="submit">See Stocked Album</button>
 </form>
 
 
 <form class="inventory_actions" action="/inventory/buy" method="post">
+
   <input type="hidden" name="account_balance" value="@inventory.account_balance"/>
+
   <select name="album_id">
     <% @stock_views.each do |stock_item| %>
         <option value="<%= stock_item.album_id %>"><%= stock_item.album_title %></option>
@@ -43,8 +50,11 @@
 </form>
 
 
+
 <form class="inventory_actions" action="/inventory/sell" method="post">
+
   <input type="hidden" name="account_balance" value="@inventory.account_balance"/>
+
   <select name="album_id">
     <% @stock_views.each do |stock_item| %>
         <option value="<%= stock_item.album_id %>"><%= stock_item.album_title %></option>
