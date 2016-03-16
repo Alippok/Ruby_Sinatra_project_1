@@ -9,6 +9,11 @@
 <%= erb(:"stock/index") %> 
 <br>
 
+<form class="database_search" action="/inventory/search" method="get">
+  <label>Search Albums:</label>
+  <input type="text" name="search_pattern"/>
+</form>
+
  
 <form class="inventory_actions" action="/inventory/stock" method="get">
   <input type="hidden" name="account_balance" value="@inventory.account_balance"/>

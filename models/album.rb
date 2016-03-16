@@ -85,7 +85,10 @@ class Album
     SqlRunner.execute(sql)
   end
 
-
+  def self.search(pattern)
+    sql = "SELECT * FROM albums WHERE title LIKE '%#{pattern}%'"
+    return Album.map_items(SqlRunner.execute( sql ))
+  end
 
 
 end
