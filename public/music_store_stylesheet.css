@@ -150,6 +150,7 @@ a{
   width:5%;
   text-align:center;
   box-shadow:0px 0px 10px black;
+  font-size:1.5vw;
   transition:1s ease all;
 }
 
@@ -468,7 +469,14 @@ button{
 
 
 /*Stock Index View*/
-
+#stock_index h3{
+  background-color: #f1f2f0;
+  border-radius: 5px;
+  width:10%;
+  box-shadow:0px 0px 10px black;
+  font-size:2vw;
+  text-align:center;
+}
 .stock_table{
   position:relative;
   left:20%;
@@ -496,3 +504,58 @@ button{
   background-color: #37bbe4;
   transform:scale(1.5);
   }
+
+/*New stock*/
+
+.stock_form{
+  position:relative;
+  top:10px;
+  left:30%;
+  width:35%;
+  background-color: #f1f2f0;
+  box-shadow: 0px 0px 10px black;
+  border-radius: 5px;
+  padding:5px;
+  text-align:center;
+}
+
+.stock_form legend, label, select, input[type="text"], button{
+  display:block;
+  margin-bottom:20px;
+}
+.stock_form legend{
+  margin-left:12%;
+  font-size:2vw;
+}
+.stock_form select{
+  margin-left:25.5%;
+  font-size:2vw;
+}
+.stock_form label{
+  margin-left:3%;
+  font-size:2vw;
+}
+.stock_form input[type="number"]{
+  font-size:1.5vw;
+  margin-left:24%;
+  border-radius: 5px;
+}
+.stock_form button{
+  margin-top:10px;
+  margin-left:26%;
+  margin-bottom:10px;
+  font-size:1.5vw;
+  font-family:'Alfa Slab One', cursive;
+  border-radius: 5px;
+  border:none;
+  background-color: white;
+  box-shadow:0px 0px 10px black;
+  transition:1s ease all;
+}
+.stock_form button:hover{
+  background-color:#37bbe4;
+}
+
+#new_artist_form{
+  margin-left:35%;
+}
