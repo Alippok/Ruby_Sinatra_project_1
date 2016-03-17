@@ -171,7 +171,7 @@ a{
 
 .artists_albums{
   float:left;
-  width:18%;
+  width:25%;
   background-color: #f1f2f0;
   padding:5px;
   margin-bottom: 10px;
@@ -591,6 +591,11 @@ button{
   transition:1s ease all;
 }
 
+.database_search button:hover, .inventory_actions button:hover{
+  background-color: #35342f;
+  color:white;
+}
+
 .inventory_actions{
   float:left;
   background-color: #f1f2f0;
@@ -631,4 +636,7 @@ button{
 }
 #buy_stock button, #sell_stock button{
   margin-left:27%;
+}
+#buy_stock input[type="number"],  #sell_stock input[type="number"]{
+  margin-left: 8%;
 }
