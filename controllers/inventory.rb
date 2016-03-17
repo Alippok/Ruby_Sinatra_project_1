@@ -76,3 +76,12 @@ post '/inventory/sell' do
   stock.update
   redirect to '/inventory'
 end
+
+get '/inventory/search' do
+  @result = Album.search(params['search_pattern'])
+  # @inventory_components = InventoryComponents.new('account_balance'=>params['account_balance'])
+  # @inventory = Inventory.new(@inventory_components.options)
+  
+  erb(:"inventory/search_results")
+
+end

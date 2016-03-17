@@ -1,15 +1,17 @@
-<h1><%= @album.title %></h1>
+<div class="show_album">
+  <h1><%= @album.title %></h1>
 
-<h3>Buy Price: £<%= @album.buy_price %></h3>
+  <div class="show_album_info">Buy Price: £<%= @album.buy_price %></div>
 
-<h3>Sell Price: £<%= @album.sell_price %></h3>
+  <div class="show_album_info">Sell Price: £<%= @album.sell_price %></div>
 
-<form class="album_form" action="/albums/<%= @album.id %>/edit" method="get">
-  <input type="submit" value="Edit Album"></input>
-</form>
+  <form class="album_actions" action="/albums/<%= @album.id %>/edit" method="get">
+    <button type="submit">Edit Album</button>
+  </form>
 
-<form class="album_form" action="/albums/<%= @album.id %>/delete" method="post">
-  <input type="submit" value="Remove Album"></input>
-</form>
+  <form class="album_actions" action="/albums/<%= @album.id %>/delete" method="post">
+    <button type="submit">Remove Album</button>
+  </form>
+</div>
 
-
+<div id="albums_home"><a href="/albums">Albums Home</a></div>

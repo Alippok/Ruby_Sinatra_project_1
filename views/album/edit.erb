@@ -1,4 +1,4 @@
-<form class="album_form" action="/albums/<%= @album.id %>" method="post">
+<form class="album_form" id="album_form_edit" action="/albums/<%= @album.id %>" method="post">
 
   <legend>Edit Album</legend>
 
@@ -10,7 +10,7 @@
      
     <input type="hidden" name="artist_id" value="<%= @album.artist_id %>"/>
     
-    <input type="submit" value="Update Album"/>
+    <button type="submit">Update Album</button>
 
 
 </form>

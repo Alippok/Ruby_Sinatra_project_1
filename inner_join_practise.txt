@@ -1,0 +1,149 @@
+music_store=# select * from albums where artist_id = 4 INNER JOIN artists on artist_id = artists(id);
+ERROR:  syntax error at or near "INNER"
+LINE 1: select * from albums where artist_id = 4 INNER JOIN artists ...
+                                                 ^
+music_store=# select * from albums INNER JOIN artists on artist_id = artists(id)where artists(id)=4;
+ERROR:  column reference "id" is ambiguous
+LINE 1: ... albums INNER JOIN artists on artist_id = artists(id)where a...
+                                                             ^
+music_store=# select * from albums INNER JOIN artists on artist_id = artists.id where artists(id)=4;
+ERROR:  column reference "id" is ambiguous
+LINE 1: ... JOIN artists on artist_id = artists.id where artists(id)=4;
+                                                                 ^
+music_store=# select * from albums INNER JOIN artists on artist_id = artists.id where artists.id=4;
+ id |       title        | artist_id | buy_price | sell_price | id |   name    
+----+--------------------+-----------+-----------+------------+----+-----------
+  1 | Kill Em All        |         4 |         6 |         10 |  4 | Metallica
+  2 | Ride the Lightning |         4 |         4 |          9 |  4 | Metallica
+  3 | Reload             |         4 |         8 |         15 |  4 | Metallica
+(3 rows)
+
+music_store=# select * from albums INNER JOIN artists on artist_id = artists.id where artists.id=5;
+ id |    title    | artist_id | buy_price | sell_price | id | name 
+----+-------------+-----------+-----------+------------+----+------
+  4 | Ballbreaker |         5 |         3 |         10 |  5 | ACDC
+(1 row)
+
+music_store=# select * from albums INNER JOIN artists on artist_id = artists.id where artists.id=6;
+ id | title | artist_id | buy_price | sell_price | id | name  
+----+-------+-----------+-----------+------------+----+-------
+  5 | 25    |         6 |         6 |         15 |  6 | Adele
+(1 row)
+
+music_store=# select * from artists INNER JOIN albums on artists.id = artist_id WHERE artist_id=4;
+ id |   name    | id |       title        | artist_id | buy_price | sell_price 
+----+-----------+----+--------------------+-----------+-----------+------------
+  4 | Metallica |  1 | Kill Em All        |         4 |         6 |         10
+  4 | Metallica |  2 | Ride the Lightning |         4 |         4 |          9
+  4 | Metallica |  3 | Reload             |         4 |         8 |         15
+(3 rows)
+
+music_store=# select * from artists, select title FROM albums INNER JOIN albums ON artists.id = artist_id WHERE artist_id=4;
+ERROR:  syntax error at or near "select"
+LINE 1: select * from artists, select title FROM albums INNER JOIN a...
+                               ^
+music_store=# select * from artists, title FROM albums INNER JOIN albums ON artists.id = artist_id WHERE artist_id=4;
+ERROR:  syntax error at or near "FROM"
+LINE 1: select * from artists, title FROM albums INNER JOIN albums O...
+                                     ^
+music_store=# select * from artists, albums.title INNER JOIN albums ON artists.id = artist_id WHERE artist_id=4;
+ERROR:  relation "albums.title" does not exist
+LINE 1: select * from artists, albums.title INNER JOIN albums ON art...
+                               ^
+music_store=# select * from artists, albums(title) INNER JOIN albums ON artists.id = artist_id WHERE artist_id=4;
+ERROR:  column "title" does not exist
+LINE 1: select * from artists, albums(title) INNER JOIN albums ON ar...
+                                      ^
+music_store=# select title from albums INNER JOIN artists ON artist_id = artists.id;
+       title        
+--------------------
+ Kill Em All
+ Ride the Lightning
+ Reload
+ Ballbreaker
+ 25
+(5 rows)
+
+music_store=# select title from albums INNER JOIN artists ON artist_id = artists.id WHERE artist_id=4;
+       title        
+--------------------
+ Kill Em All
+ Ride the Lightning
+ Reload
+(3 rows)
+
+music_store=# 
+
+
+user=# \c music_store
+You are now connected to database "music_store" as user "user".
+music_store=# SELECT * FROM artists;
+ id |   name    
+----+-----------
+  1 | Metallica
+  2 | ACDC
+  3 | Adele
+(3 rows)
+
+music_store=# SELECT * FROM albums;
+ id |       title        | artist_id | buy_price | sell_price 
+----+--------------------+-----------+-----------+------------
+  1 | Kill Em All        |         1 |         6 |         10
+  2 | Ride the Lightning |         1 |         4 |          9
+  3 | Reload             |         1 |         8 |         15
+  4 | Ballbreaker        |         2 |         3 |         10
+  5 | 25                 |         3 |         3 |         15
+(5 rows)
+
+music_store=# SELECT * FROM stocks;
+ id | album_id | quantity 
+----+----------+----------
+  1 |        1 |        0
+  2 |        2 |        0
+  3 |        4 |        0
+  4 |        5 |        0
+(4 rows)
+
+music_store=# SELECT * FROM stocks INNER JOIN albums ON album_id = albums.id INNER JOIN artists ON artist_id = artists.id;
+music_store=# SELECT * FROM stocks INNER JOIN albums ON album_id = albums.id INNER JOIN artists ON artist_id = artists.id WHERE artist.id =1;
+ERROR:  missing FROM-clause entry for table "artist"
+LINE 1: ...NNER JOIN artists ON artist_id = artists.id WHERE artist.id ...
+                                                             ^
+music_store=# SELECT * FROM stocks INNER JOIN albums ON album_id = albums.id INNER JOIN artists ON artist_id = artists.id WHERE artists.id =1;
+ id | album_id | quantity | id |       title        | artist_id | buy_price | sell_price | id |   name    
+----+----------+----------+----+--------------------+-----------+-----------+------------+----+-----------
+  1 |        1 |        0 |  1 | Kill Em All        |         1 |         6 |         10 |  1 | Metallica
+  2 |        2 |        0 |  2 | Ride the Lightning |         1 |         4 |          9 |  1 | Metallica
+(2 rows)
+
+music_store=# 
+
+
+
+
+
+
+
+
+music_store=# select * from stocks INNER JOIN albums ON album_id=albums.id;
+music_store=# select * from stocks INNER JOIN albums ON album_id=albums.id INNER JOIN artists ON artist_id=artists.id;
+ id | album_id | quantity | id |       title        | artist_id | buy_price | sell_price | id |   name    
+----+----------+----------+----+--------------------+-----------+-----------+------------+----+-----------
+  1 |        1 |        0 |  1 | Kill Em All        |         1 |         6 |         10 |  1 | Metallica
+  2 |        2 |        0 |  2 | Ride The Lightning |         1 |         5 |          9 |  1 | Metallica
+  3 |        4 |        0 |  4 | Ballbreaker        |         2 |         3 |         10 |  2 | ACDC
+  4 |        5 |        0 |  5 | 25                 |         3 |         3 |         15 |  3 | Adele
+  5 |        4 |        0 |  4 | Ballbreaker        |         2 |         3 |         10 |  2 | ACDC
+(5 rows)
+
+music_store=# SELECT * from albums INNER JOIN artists ON artist_id = artists.id INNER JOIN stocks ON album_id = albums.id;
+ id |       title        | artist_id | buy_price | sell_price | id |   name    | id | album_id | quantity 
+----+--------------------+-----------+-----------+------------+----+-----------+----+----------+----------
+  1 | Kill Em All        |         1 |         6 |         10 |  1 | Metallica |  1 |        1 |        0
+  2 | Ride The Lightning |         1 |         5 |          9 |  1 | Metallica |  2 |        2 |        0
+  4 | Ballbreaker        |         2 |         3 |         10 |  2 | ACDC      |  3 |        4 |        0
+  5 | 25                 |         3 |         3 |         15 |  3 | Adele     |  4 |        5 |        0
+  4 | Ballbreaker        |         2 |         3 |         10 |  2 | ACDC      |  5 |        4 |        0
+(5 rows)
+
+music_store=# 

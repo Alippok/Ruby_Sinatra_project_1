@@ -166,5 +166,7 @@ class Inventory
     return markup_amount.to_i * quantity.to_i
   end
 
-  #do a total possible sales method by:    markup * quanity??
+  
+
+
 end

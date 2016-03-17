@@ -1,6 +1,7 @@
 require('minitest/autorun')
 require('minitest/rg')
 require_relative('../models/artist.rb')
+require_relative('../db/sql_runner.rb')
 
 
 class TestArtist < MiniTest::Test
@@ -15,10 +16,7 @@ class TestArtist < MiniTest::Test
     assert_equal("Metallica", @artist.name)
   end
 
-
-
-
-
+  
 
 
 

@@ -2,7 +2,7 @@ class Transaction
 
   attr_reader(:account)
 
-  def initialize
+  def initialize()
     @account = 500
   end
 

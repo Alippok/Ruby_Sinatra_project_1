@@ -19,6 +19,7 @@ class TestAlbum < MiniTest::Test
     assert_equal(1, @album1.artist_id)
   end
 
+  
 
 
 

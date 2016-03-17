@@ -611,25 +611,28 @@ button{
 .inventory_actions legend{
   font-size:2vw;
   margin-left:22%;
+  margin-bottom: 10px;
 }
-
+.inventory_actions select{
+  font-size:1.5vw;
+  margin-left:12%;
+}
 .inventory_actions:hover, .database_search:hover{
   background-color: #37bbe4;
 }
-/*Just change button to background color-dark one- and font colour white when hovered over*/
-
+#buy_stock{
+  clear:both;
+}
 #search_stock, #sell_stock{
   float:right;
   margin-right:5%;
 }
+#buy_stock select, #sell_stock select{
+  margin-left:20%;
+}
 #search_stock legend{
   margin-left:16%;
 }
-
-#buy_stock{
-  clear:both;
-}
-
 #search_stock button{
   width:90%;
   margin-left:6%;
@@ -639,4 +642,7 @@ button{
 }
 #buy_stock input[type="number"],  #sell_stock input[type="number"]{
   margin-left: 8%;
+}
+#buy_stock label, #sell_stock label{
+  margin-left:28%;
 }

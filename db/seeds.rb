@@ -26,7 +26,7 @@ Artist.delete_all
 
 
 
-binding.pry
-nil
+
+
 
 
