@@ -500,9 +500,7 @@ button{
   padding:10px;
 }
 .stock_table tr:hover{
-  z-index:10;
-  background-color: #37bbe4;
-  transform:scale(1.5);
+   background-color: #37bbe4;
   }
 
 /*New stock*/
